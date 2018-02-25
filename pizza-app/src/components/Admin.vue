@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-
+            <vue-newPizza> </vue-newPizza>
         </div>
         <div class="col-lg-6">
             <h3>Menù:</h3>
@@ -54,7 +54,9 @@
 <script>
 import NewPizza from './NewPizza.vue'
 export default {
-  
+  components: {
+      'vue-newPizza': NewPizza
+  }
 }
 </script>
 
