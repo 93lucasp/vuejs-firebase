@@ -63,6 +63,14 @@ export default {
   components: {
       'vue-newPizza': NewPizza,
       'vue-login': Login
+  },
+  beforeRouteLeave: (to, from, next) => {
+      if(confirm("have you logout") === true) {
+          next();
+      }
+      else {
+          next(false);
+      }
   }
 }
 </script>

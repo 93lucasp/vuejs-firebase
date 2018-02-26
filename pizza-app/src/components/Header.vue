@@ -3,10 +3,10 @@
       <nav class="navbar">
           <a href="/" class="navbar-brand">Pizza</a>
           <ul class="nav">
-                  <router-link :to="homeLink" tag="li">
+                  <router-link :to="{name: 'homeLink'}" tag="li">
                     <a class="nav-link">Home</a>
                   </router-link>
-                  <router-link :to="menuLink" tag="li">
+                  <router-link :to="{name: 'menuLink'}" tag="li">
                      <a class="nav-link">Menu</a>
                   </router-link>
           </ul>
@@ -18,8 +18,7 @@
 export default {
   data() {
       return {
-          homeLink: '/',
-          menuLink: '/menu'
+          
       }
   }
 }

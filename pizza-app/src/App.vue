@@ -6,6 +6,20 @@
      <div class="container">
       <router-view></router-view>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <router-view name="contact"></router-view>
+        </div>
+        <div class="col-lg-3">
+          <router-view name="login"></router-view>
+        </div>
+        <div class="col-lg-3">
+          <router-view name="about"></router-view>
+        </div>
+      </div>
+      
+    </div>
      <div class="container">
       <vue-footer></vue-footer>
     </div>

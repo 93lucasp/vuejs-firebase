@@ -2,10 +2,10 @@
  <header class="row">
       <footer class="navbar">
           <ul class="nav">
-              <router-link to="/about" tag="li">
+              <router-link :to="{name: 'aboutLink'}" tag="li">
                     <a class="nav-link">about</a>
                   </router-link>
-                  <router-link to="/admin" tag="li">
+                  <router-link :to="{name: 'adminLink'}" tag="li">
                      <a class="nav-link">Admin</a>
                   </router-link>
           </ul>

@@ -5,10 +5,10 @@
         <p>click for more info</p>
         <nav class="navbar">
           <ul class="nav">
-                  <router-link to="/contact" tag="li">
+                  <router-link :to="{name: 'contactLink'}" tag="li">
                     <a class="nav-link">Contact</a>
                   </router-link>
-                  <router-link to="/login" tag="li">
+                  <router-link :to="{name: 'loginLink'}" tag="li">
                     <a class="nav-link">Login</a>
                   </router-link>
           </ul>

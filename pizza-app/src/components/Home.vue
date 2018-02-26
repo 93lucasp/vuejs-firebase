@@ -4,13 +4,23 @@
           <div class="background  text-center">
               <div>
                    <h1>Pizza name</h1>
-                    <button class="btn btn-success">Let's order</button>
+                    <button class="btn btn-success" @click="goToMenu">Let's order</button>
               </div>
              
           </div>
       </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+      goToMenu() {
+          this.$router.replace('/menu')
+      },
+  }
+}
+</script>
+
 
 <style  lang="scss">
     #home {
