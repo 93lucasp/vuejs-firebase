@@ -41,58 +41,32 @@
                     </tbody>
                 </table>
                 order total: {{totalPrice}}
-                <button class="btn btn-success w-100">Order</button>
+                <button class="btn btn-success w-100" @click="addNewOrder">Order</button>
+            </div>
+            <div v-else>
+                <p>{{basketText}} {{this.$store.state.orders}}</p>
             </div>
           </div>
       </div>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
+    
   name: 'app',
   data () {
     return {
         basket: [],
         totalPrice: 0,
-      getMenuItems: {
-          1: {
-              name: 'Margherita',
-              description: 'A delcious margheritaaaa made by hands',
-              options: [{
-                  size: 9,
-                  price: 7.96
-              },
-              {
-                  size: 12,
-                  price: 12.95
-              }]
-          },
-          2: {
-              name: 'Tedesca',
-              description: 'A delcious margheritaaaa made with patatos',
-              options: [{
-                  size: 9,
-                  price: 7.96
-              },
-              {
-                  size: 12,
-                  price: 12.95
-              }]
-          },
-          3: {
-              name: '4 formaggi',
-              description: 'A delcious margheritaaaa with 4 cheese',
-              options: [{
-                  size: 9,
-                  price: 7.96
-              },
-              {
-                  size: 12,
-                  price: 12.95
-              }]
-          }
-      }
+        basketText: 'None orders'
+      
     }
+  },
+  computed: {
+      ...mapGetters ([
+           'getMenuItems'
+       ])
   },
   methods: {
       addToBasket(item, option) {
@@ -119,6 +93,11 @@ export default {
           if( item.quantity === 0) {
               this.removeFromBasket(item)
           }
+      },
+      addNewOrder() {
+          this.$store.commit('addOrder', this.basket);
+          this.basket = [];
+          this.basketText = "order added"
       }
   }
 }
