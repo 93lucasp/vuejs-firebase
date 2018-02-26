@@ -48,14 +48,21 @@
             </table>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <vue-login></vue-login>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
 import NewPizza from './NewPizza.vue'
+import Login from  './Login.vue'
 export default {
   components: {
-      'vue-newPizza': NewPizza
+      'vue-newPizza': NewPizza,
+      'vue-login': Login
   }
 }
 </script>

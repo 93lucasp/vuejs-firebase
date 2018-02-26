@@ -4,7 +4,7 @@
       <vue-header></vue-header>
     </div>
      <div class="container">
-      <vue-admin></vue-admin>
+      <router-view></router-view>
     </div>
      <div class="container">
       <vue-footer></vue-footer>
@@ -15,9 +15,7 @@
 <script>
 import Header from  './components/Header.vue'
 import Footer from  './components/Footer.vue'
-import Home from  './components/Home.vue'
-import Menu from  './components/Menu.vue'
-import Admin from  './components/Admin.vue'
+
 export default {
   name: 'app',
   data () {
@@ -28,9 +26,6 @@ export default {
   components: {
     'vue-header': Header,
     'vue-footer': Footer,
-    'vue-home': Home,
-     'vue-menu': Menu,
-     'vue-admin': Admin,
 
   }
 }

@@ -2,15 +2,12 @@
  <header class="row">
       <footer class="navbar">
           <ul class="nav">
-              <li class="nav-item">
-                  <a href="" class="nav-link">Home</a>
-              </li>
-              <li class="nav-item">
-                  <a href="" class="nav-link">About</a>
-              </li>
-              <li class="nav-item">
-                  <a href="" class="nav-link">Admin</a>
-              </li>
+              <router-link to="/about" tag="li">
+                    <a class="nav-link">about</a>
+                  </router-link>
+                  <router-link to="/admin" tag="li">
+                     <a class="nav-link">Admin</a>
+                  </router-link>
           </ul>
       </footer>
   </header>
