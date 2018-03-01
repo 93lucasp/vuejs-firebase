@@ -52,6 +52,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import { dbOrdersRef } from '../firebaseConfig'
 export default {
     
   name: 'app',
@@ -95,7 +96,8 @@ export default {
           }
       },
       addNewOrder() {
-          this.$store.commit('addOrder', this.basket);
+        //   this.$store.commit('addOrder', this.basket);
+          dbOrdersRef.push(this.basket)
           this.basket = [];
           this.basketText = "order added"
       }

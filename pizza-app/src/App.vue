@@ -29,7 +29,7 @@
 <script>
 import Header from  './components/Header.vue'
 import Footer from  './components/Footer.vue'
-
+import { dbMenuRef, dbOrdersRef } from  './firebaseConfig'
 export default {
   name: 'app',
   data () {
@@ -40,6 +40,12 @@ export default {
   components: {
     'vue-header': Header,
     'vue-footer': Footer,
+
+  },
+  created() {
+    this.$store.dispatch('setMenuRef', dbMenuRef);
+    this.$store.dispatch('setOrdersRef', dbOrdersRef);
+
 
   }
 }

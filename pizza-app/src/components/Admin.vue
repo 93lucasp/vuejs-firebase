@@ -25,8 +25,8 @@
     <div class="row">
         <div class="col-lg-12">
             <h3>Current orders: {{numberOfOrders}}</h3>
-            <table class="table table-sm">
-                <thead class="thead-default">
+            <table class="table table-sm" v-for="orders in getOrders">
+                <thead class="thead-default" >
                     <tr>
                         <th>Item</th>
                         <th>size</th>
@@ -38,11 +38,11 @@
                     <div class="order-number">
                         <strong> <em>Order Number: 1</em> </strong><button class="btn btn-sm btn-danger ">x</button>
                     </div>
-                    <tr>
-                        <td>Margherita</td>
-                        <td>9"</td>
-                        <td>2</td>
-                        <td>9.70</td>
+                    <tr v-for="order in orders['.value']">
+                        <td>{{order.name}}</td>
+                        <td>{{order.size}}</td>
+                        <td>{{order.quantity}}</td>
+                        <td>{{order.price}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -68,6 +68,7 @@ export default {
    computed: {
        ...mapGetters ([
            'numberOfOrders',
+           'getOrders',
            'getMenuItems'
        ])
   },
