@@ -10,7 +10,7 @@
                           <th>add to basket </th>
                       </tr>
                   </thead>
-                  <tbody v-for="item in getMenuItems">
+                  <tbody v-for="item in getMenuItems" :key="item['.key']">
                       <tr>
                           <td>{{item.name}}</td>
                       </tr>
@@ -44,7 +44,7 @@
                 <button class="btn btn-success w-100" @click="addNewOrder">Order</button>
             </div>
             <div v-else>
-                <p>{{basketText}} {{this.$store.state.orders}}</p>
+                <p>{{basketText}} </p>
             </div>
           </div>
       </div>
@@ -67,7 +67,15 @@ export default {
   computed: {
       ...mapGetters ([
            'getMenuItems'
-       ])
+       ]),
+       total() {
+           var totalCost = 0;
+           for( var items in this.basket) {
+               var individualItem = this.basket[items];
+               totalCost += individualItem.quantity * individualItem.price
+           }
+           return totalCost;
+       }
   },
   methods: {
       addToBasket(item, option) {
