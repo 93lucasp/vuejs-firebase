@@ -60,8 +60,9 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{item}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="exampleModalLabel">{{item.name}}</h5>
+        <input type="text" v-model="item.name" >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -70,7 +71,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" @click="updateMenuItem(item['.key'])">Save changes</button>
       </div>
     </div>
   </div>
@@ -112,14 +113,16 @@ export default {
   },
   methods: {
       removeMenuItem(key) {
+          console.log(key)
           dbMenuRef.child(key).remove()
       },
      updateMenuItem(key) {
-           dbMenuRef.child(key).update({
-              name: 'updated only title',
-              description: 'teeeest',
-          
-          });
+         var item = {
+             name: this.item.name,
+             description: this.item.description
+         }
+         console.log(item)
+           dbMenuRef.child(key).update(item);
         //   dbMenuRef.child(key).remove()
       },
       removeOrderItem(key) {
@@ -127,6 +130,7 @@ export default {
       },
       toModal(item) {
           this.item = item;
+          console.log(item)
       }
   }
 }
