@@ -13,6 +13,7 @@
                   <tbody v-for="item in getMenuItems" :key="item['.key']">
                       <tr>
                           <td>{{item.name}}</td>
+                          <img :src="item.photo" alt="">
                       </tr>
                       <tr v-for="option in item.options">
                           <td>{{option.size}}</td>

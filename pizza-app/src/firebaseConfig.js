@@ -5,7 +5,7 @@ var config = {
     authDomain: "pizza-cf658.firebaseapp.com",
     databaseURL: "https://pizza-cf658.firebaseio.com",
     projectId: "pizza-cf658",
-    storageBucket: "",
+    storageBucket: "pizza-cf658.appspot.com",
     messagingSenderId: "392835586013"
 };
 const firebaseApp = Firebase.initializeApp(config);
